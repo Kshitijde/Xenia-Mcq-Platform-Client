@@ -32,7 +32,7 @@ const Login = ({ history }) => {
   var [message, setMessage] = React.useState(""); //change message
   const onClickFunction = () => {
     axios
-      .post("http://localhost:3001/login", {
+      .post("https://api.xeniamcq.co.in/login", {
         username: usernameRef.current.value,
         password: passwordRef.current.value,
       })

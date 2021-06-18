@@ -52,7 +52,7 @@ class QuizPage extends Component {
 
     if (this.props.questions.length === 0) {
       axios
-        .post("http://localhost:3001/fetchQuestions")
+        .post("https://api.xeniamcq.co.in/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -70,7 +70,7 @@ class QuizPage extends Component {
     }
     console.log(this.props);
     var link =
-      "http://localhost:3001/getTime/" + this.props.match.params.authToken;
+      "https://api.xeniamcq.co.in/getTime/" + this.props.match.params.authToken;
     console.log(link);
     axios
       .post(link)
@@ -103,7 +103,7 @@ class QuizPage extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "http://localhost:3001/saveResponse/" +
+      "https://api.xeniamcq.co.in/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)
