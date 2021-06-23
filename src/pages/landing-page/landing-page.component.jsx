@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
 
 import "./landing-page.styles.scss";
 
@@ -6,10 +7,10 @@ import Login from "../../components/login/login.component";
 import Instructions from "../../components/instructions/instructions.component";
 import { Container, Row, Col, Navbar } from "react-bootstrap";
 import Xenia21_Logo from "../../assets/Xenia21_Text.png";
-import circuitron from "../../assets/circuitron.png";
-import coutchpotato from "../../assets/coutchpotato.png";
-import CampusToCorporate from "../../assets/CampusToCorporate.png";
-import xeNatus from "../../assets/xeNatus.png";
+// import circuitron from "../../assets/Circuitron.png";
+// import coutchpotato from "../../assets/CouchPotato.png";
+// import CampusToCorporate from "../../assets/CampustoCorporate.png";
+// import xeNatus from "../../assets/xeNatus.png";
 
 function LandingPage() {
   return (
@@ -52,4 +53,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

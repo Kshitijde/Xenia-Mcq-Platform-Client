@@ -8,7 +8,7 @@ import "./question.styles.scss";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { getSelectedQuestion } from "../../redux/question/question.selector";
+import { getSelectedQuestion,getSelectedQuestionNumber } from "../../redux/question/question.selector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Question = function ({ question }) {
+const Question = function ({ question,questionNumber}) {
   const classes = useStyles();
   const [value, setValue] = React.useState("Controlled");
 
@@ -42,7 +42,7 @@ const Question = function ({ question }) {
         <div className="question" style={{ justifyItems: "left" }}>
           <TextField
             id="standard-multiline-flexible"
-            label="Question #1"
+            label={`Question #${questionNumber+1}`}
             multiline
             rowsMax={3}
             // value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna sha "
@@ -69,6 +69,7 @@ const Question = function ({ question }) {
 
 const mapStateToProps = createStructuredSelector({
   question: getSelectedQuestion,
+  questionNumber: getSelectedQuestionNumber
 });
 const Wrapper = styled.section`
   .media {

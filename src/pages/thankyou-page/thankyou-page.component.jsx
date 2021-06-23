@@ -10,30 +10,36 @@ import { withRouter } from "react-router-dom";
 // import Instructions from "../../components/instructions/instructions.component";
 import { Container, Row, Col, Navbar } from "react-bootstrap";
 
-function ThankyouPage({ location }) {
-  return (
-    <Wrapper>
-      <div id="paddingStyle" className="container-fluid1">
-        <div className="overlay">
-          <img src={Xenia21_Logo} width="200px" className="Xenia21Logo" />
+class ThankyouPage extends React.Component{
+  componentDidMount()
+  {
+    window.history.pushState(null, document.title, window.location.href); window.addEventListener('popstate', function (event){ window.history.pushState(null, document.title, window.location.href); });
+  }
+  render(){
+    return (
+      <Wrapper>
+        <div id="paddingStyle" className="container-fluid1">
+          <div className="overlay">
+            <img src={Xenia21_Logo} width="200px" className="Xenia21Logo" />
 
-          <div className="thankyouStyling">
-            <Typography variant="h1" className="thankyou-heading">
-              Thank You!
-            </Typography>
-          </div>
-          <div className="thankyouStyling">
-            {/* <Typography variant="h3" className="subheading">
-              lorem ipsom dolor sit amet
-            </Typography> */}
-            <Typography variant="h3" className="subheading">
-              Your score is {location.state.score}
-            </Typography>
+            <div className="thankyouStyling">
+              <Typography variant="h1" className="thankyou-heading">
+                Thank You!
+              </Typography>
+            </div>
+            <div className="thankyouStyling">
+              {/* <Typography variant="h3" className="subheading">
+                lorem ipsom dolor sit amet
+              </Typography> */}
+              <Typography variant="h3" className="subheading">
+                Your score is {this.props.location.state.score}
+              </Typography>
+            </div>
           </div>
         </div>
-      </div>
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+          }
 }
 
 const Wrapper = styled.section`

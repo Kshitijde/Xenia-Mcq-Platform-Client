@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 // import CancelIcon from "@material-ui/icons/Cancel";
 import CloseSharpIcon from "@material-ui/icons/CloseSharp";
-
+import Divider from "@material-ui/core/Divider";
 import styled from "styled-components";
 
 const drawerWidth = 370;
@@ -147,8 +147,9 @@ const Wrapper = styled.section`
   }
   .closeButtonPosition {
     right: -9px;
+    margin-top: 50%;
   }
   .footerGrid {
-    margin-top: 0%;
+    margin-top: 50%;
   }
 `;
