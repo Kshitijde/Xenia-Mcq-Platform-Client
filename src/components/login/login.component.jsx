@@ -51,7 +51,7 @@ const Login = ({ history }) => {
   const onClickFunction = () => {
     // console.log("event ref value is",eventRef.current.value,"eventName is",eventname)
     axios
-      .post(`http://localhost:3001/${eventname}/login`, {
+      .post(`https://api.xeniamcq.co.in/${eventname}/login`, {
         username: usernameRef.current.value,
         password: passwordRef.current.value,
       })
