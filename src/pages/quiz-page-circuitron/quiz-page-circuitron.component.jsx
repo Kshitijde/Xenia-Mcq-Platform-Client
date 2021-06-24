@@ -58,18 +58,18 @@ class QuizPageCircuitRon extends Component {
     console.log("this.props is ", this.props);
     console.log("state before setting mounted to true", this.state);
 
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 13, 30, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 14, 0, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-    // // console.log("current compared to prev",prevDate<date,nextDate>date);
+    const date=new Date();
+    console.log("current date is",date.toLocaleString());
+    const prevDate=new Date(2021, 5, 25, 0, 22, 0, 0);
+    console.log("prev date is",prevDate.toLocaleString())
+    const nextDate=new Date(2021, 5, 25, 0, 26, 0, 0);
+    console.log("next date is",nextDate.toLocaleString())
+    // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    // if(!(date>prevDate&&date<nextDate))
-    // {
-    //   this.props.history.push("/")
-    // }
+    if(!(date>prevDate&&date<nextDate))
+    {
+      this.props.history.push("/")
+    }
     if (this.props.questionsCircuitron.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/circuitron/fetchQuestions")
