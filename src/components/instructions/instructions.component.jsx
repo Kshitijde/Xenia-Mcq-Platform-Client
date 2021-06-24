@@ -3,8 +3,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import "./instructions.styles.scss";
 import StopIcon from "@material-ui/icons/Stop";
 function Instructions() {
-  const minutes = 10;
-  const noOfQuestion = 30;
+  const minutes = 20;
+  const noOfQuestion = 80;
   return (
     <div className="intruction-div">
       <h1>Instructions</h1>

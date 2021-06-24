@@ -160,6 +160,7 @@ class QuizPageXenatus extends Component {
         });
     } else {
       txt = "You pressed Cancel!";
+      window.location.reload();
     }
     console.log(txt);
   };
@@ -389,6 +390,7 @@ const mapDispatchToProps = (dispatch) => ({
   selectedQuestionNextXenatus: (num) => {
     if (num === 34) {
       window.alert("This is the last question of this quiz!");
+      window.location.reload();
     } else {
       dispatch(selectedQuestionNextXenatus(num));
     }
