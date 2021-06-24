@@ -72,7 +72,7 @@ class QuizPageCircuitRon extends Component {
     // }
     if (this.props.questionsCircuitron.length === 0) {
       axios
-        .post("http://api.xeniamcq.co.in/circuitron/fetchQuestions")
+        .post("https://api.xeniamcq.co.in/circuitron/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -90,7 +90,7 @@ class QuizPageCircuitRon extends Component {
     }
     console.log(this.props);
     var link =
-      "http://api.xeniamcq.co.in/circuitron/getTime/" +
+      "https://api.xeniamcq.co.in/circuitron/getTime/" +
       this.props.match.params.authToken;
     console.log(link);
     axios
@@ -131,7 +131,7 @@ class QuizPageCircuitRon extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "http://api.xeniamcq.co.in/circuitron/saveResponse/" +
+      "https://api.xeniamcq.co.in/circuitron/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)

@@ -77,7 +77,7 @@ class QuizPageXenatus extends Component {
     // }
     if (this.props.questionsXenatus.length === 0) {
       axios
-        .post("http://api.xeniamcq.co.in/xenatus/fetchQuestions")
+        .post("https://api.xeniamcq.co.in/xenatus/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -95,7 +95,7 @@ class QuizPageXenatus extends Component {
     }
     console.log(this.props);
     var link =
-      "http://api.xeniamcq.co.in/xenatus/getTime/" +
+      "https://api.xeniamcq.co.in/xenatus/getTime/" +
       this.props.match.params.authToken;
     console.log(link);
     axios
@@ -136,7 +136,7 @@ class QuizPageXenatus extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "http://api.xeniamcq.co.in/xenatus/saveResponse/" +
+      "https://api.xeniamcq.co.in/xenatus/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)
