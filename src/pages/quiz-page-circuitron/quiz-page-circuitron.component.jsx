@@ -60,9 +60,9 @@ class QuizPageCircuitRon extends Component {
 
     const date=new Date();
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 0, 35, 0, 0);
+    const prevDate=new Date(2021, 5, 25, 0, 40, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 0, 40, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 0, 45, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
     // console.log("current compared to prev",prevDate<date,nextDate>date);
 
@@ -70,6 +70,7 @@ class QuizPageCircuitRon extends Component {
     {
       this.props.history.push("/")
     }
+    else{
     if (this.props.questionsCircuitron.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/circuitron/fetchQuestions")
@@ -110,6 +111,7 @@ class QuizPageCircuitRon extends Component {
         // this.props.setSelectedQuestion(1);
         // console.log("action initialised");
       })
+
       .catch(function (error) {
         console.log("an error has occurred : ", error);
       });
@@ -118,7 +120,7 @@ class QuizPageCircuitRon extends Component {
       this.submit(this, this.props.questionsCircuitron);
     }
   }
-
+  }
   componentWillUpdate() {
     if (this.props.fetchedTime <= 0) {
       console.log("here in if of will update");
