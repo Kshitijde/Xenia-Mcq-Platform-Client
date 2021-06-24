@@ -135,22 +135,33 @@ class QuizPageXenatus extends Component {
   submit = (reference, response) => {
     console.log("submit clicked");
     console.log("body while sending is", response);
-    var link =
-      "https://api.xeniamcq.co.in/xenatus/saveResponse/" +
-      reference.props.match.params.authToken;
-    axios
-      .post(link, response)
-      .then(function (res) {
-        console.log("response returned from an endpoint", res.data.score);
+    var txt;
+    if (
+      window.confirm("Do you want to submit the test?!") ||
+      this.props.fetchedTime <= 0
+    ) {
+      txt = "You pressed OK!";
 
-        reference.props.history.push({
-          pathname: "/thankyou/#!",
-          state: { score: res.data.score },
+      var link =
+        "https://api.xeniamcq.co.in/xenatus/saveResponse/" +
+        reference.props.match.params.authToken;
+      axios
+        .post(link, response)
+        .then(function (res) {
+          console.log("response returned from an endpoint", res.data.score);
+
+          reference.props.history.push({
+            pathname: "/thankyou/#!",
+            state: { score: res.data.score },
+          });
+        })
+        .catch(function (error) {
+          console.log("Network error raised", error);
         });
-      })
-      .catch(function (error) {
-        console.log("Network error raised", error);
-      });
+    } else {
+      txt = "You pressed Cancel!";
+    }
+    console.log(txt);
   };
 
   render() {
@@ -377,6 +388,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setFetchedQuestionsToStateXenatus(questions)),
   selectedQuestionNextXenatus: (num) => {
     if (num === 34) {
+      window.alert("This is the last question of this quiz!");
     } else {
       dispatch(selectedQuestionNextXenatus(num));
     }
