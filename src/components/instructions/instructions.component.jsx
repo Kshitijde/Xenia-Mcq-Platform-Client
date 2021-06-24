@@ -10,6 +10,8 @@ function Instructions() {
       <h1>Instructions</h1>
       <p>
         <ol>
+          <li>Read all the instructions carefully.</li>
+          <li>Login in your given time slot at 12.30 pm sharp.Event will end at exactly 12.50pm</li>
           <li>
             Ensure that you are in the MS Teams meeting for the entire duration of the test,the link
             is shared on your email.

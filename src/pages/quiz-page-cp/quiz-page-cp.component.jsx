@@ -56,18 +56,20 @@ class QuizPageCP extends Component {
     window.addEventListener("popstate", function (event) {
       window.history.pushState(null, document.title, window.location.href);
     });
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 12, 30, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 12, 50, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-    // // console.log("current compared to prev",prevDate<date,nextDate>date);
+    //12.30 to 12.50
+    const date=new Date();
+    console.log("current date is",date.toLocaleString());
+    const prevDate=new Date(2021, 5, 25, 12, 30, 0, 0);
+    console.log("prev date is",prevDate.toLocaleString())
+    const nextDate=new Date(2021, 5, 25, 12, 50, 0, 0);
+    console.log("next date is",nextDate.toLocaleString())
+    // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    // if(!(date>prevDate&&date<nextDate))
-    // {
-    //   this.props.history.push("/")
-    // }
+    if(!(date>prevDate&&date<nextDate))
+    {
+      this.props.history.push("/")
+    }
+    else{
     if (this.props.questionsCouchPotato.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/couchPotato/fetchQuestions", {
@@ -117,6 +119,7 @@ class QuizPageCP extends Component {
       console.log("here in if of will update");
       this.submit(this, this.props.questionsCouchPotato);
     }
+  }
   }
 
   componentWillUpdate() {

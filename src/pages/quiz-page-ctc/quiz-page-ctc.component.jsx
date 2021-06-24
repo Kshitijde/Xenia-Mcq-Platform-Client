@@ -58,18 +58,20 @@ class QuizPageCTC extends Component {
     });
 
     //uncomment for slot
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 18, 30, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 19, 0, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-    // // console.log("current compared to prev",prevDate<date,nextDate>date);
+    //18.30-19.00
+    const date=new Date();
+    console.log("current date is",date.toLocaleString());
+    const prevDate=new Date(2021, 5, 25, 18, 30, 0, 0);
+    console.log("prev date is",prevDate.toLocaleString())
+    const nextDate=new Date(2021, 5, 25, 19, 0, 0, 0);
+    console.log("next date is",nextDate.toLocaleString())
+    // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    // if(!(date>prevDate&&date<nextDate))
-    // {
-    //   this.props.history.push("/")
-    // }
+    if(!(date>prevDate&&date<nextDate))
+    {
+      this.props.history.push("/")
+    }
+    else{
     if (this.props.questionsC2c.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/c2c/fetchQuestions")
@@ -117,6 +119,7 @@ class QuizPageCTC extends Component {
       console.log("here in if of will update");
       this.submit(this, this.props.questionsC2c);
     }
+  }
   }
 
   componentWillUpdate() {

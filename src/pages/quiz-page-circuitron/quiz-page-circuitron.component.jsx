@@ -59,10 +59,11 @@ class QuizPageCircuitRon extends Component {
     console.log("state before setting mounted to true", this.state);
 
     const date=new Date();
+    //1.30 -2.00
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 0, 50, 0, 0);
+    const prevDate=new Date(2021, 5, 25, 13, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 0, 55, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 14, 0, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
     // console.log("current compared to prev",prevDate<date,nextDate>date);
 
