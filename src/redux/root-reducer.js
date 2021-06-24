@@ -15,10 +15,10 @@ const persistConfig = {
   storage,
   whitelist: [
     "user",
-    "circuitronQuestion",
+    // "circuitronQuestion",
     // "c2cQuestion",
     // "xenatusQuestion",
-    "couchPotatoQuestion",
+    // "couchPotatoQuestion",
   ],
 };
 

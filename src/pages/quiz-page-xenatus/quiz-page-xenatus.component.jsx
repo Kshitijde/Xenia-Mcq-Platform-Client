@@ -26,7 +26,7 @@ import "./quiz-page.styles.scss";
 
 //import GridComponent from "../../components/grid/grid.component";
 import McqComponent from "../../components/mcq-xenatus/mcq.component";
-import TimerComponent from "../../components/timer/timer.component";
+import TimerComponent from "../../components/timer-xenatus/timer.component";
 import Loader from "../../components/loader/loader.component";
 import TemporaryDrawer from "../../components/drawer-xenatus/TemporaryDrawer";
 
@@ -52,15 +52,32 @@ class QuizPageXenatus extends Component {
   componentDidMount() {
     console.log("this.props is ", this.props);
     console.log("state before setting mounted to true", this.state);
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener("popstate", function (event) {
+      window.history.pushState(null, document.title, window.location.href);
+    });
+
     // if(this.firstTime===false)
     // {
     //   this.firstTime=true;
     //   Location.reload(false)
 
     // }
+    // const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 25, 22, 0, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 25, 22, 30, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+    // // console.log("current compared to prev",prevDate<date,nextDate>date);
+
+    // if(!(date>prevDate&&date<nextDate))
+    // {
+    //   this.props.history.push("/")
+    // }
     if (this.props.questionsXenatus.length === 0) {
       axios
-        .post("https://api.xeniamcq.co.in/xenatus/fetchQuestions")
+        .post("http://api.xeniamcq.co.in/xenatus/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -78,7 +95,8 @@ class QuizPageXenatus extends Component {
     }
     console.log(this.props);
     var link =
-      "https://api.xeniamcq.co.in/xenatus/getTime/" + this.props.match.params.authToken;
+      "http://api.xeniamcq.co.in/xenatus/getTime/" +
+      this.props.match.params.authToken;
     console.log(link);
     axios
       .post(link)
@@ -118,7 +136,7 @@ class QuizPageXenatus extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "https://api.xeniamcq.co.in/xenatus/saveResponse/" +
+      "http://api.xeniamcq.co.in/xenatus/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)
@@ -167,7 +185,7 @@ class QuizPageXenatus extends Component {
             </div>
             <div className="row row2">
               <div className="col-lg-2.5 col-md-3 col-sm-11 "></div>
-              <div className="col-lg-7 col-md-7 col-sm-1">
+              {/* <div className="col-lg-7 col-md-7 col-sm-1">
                 <Wrapper>
                   <div className="row row1">
                     <ButtonGroup>
@@ -207,6 +225,43 @@ class QuizPageXenatus extends Component {
                     </ButtonGroup>
                   </div>
                 </Wrapper>
+              </div> */}
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                <div className="question-button-group">
+                  <button
+                    onClick={() => {
+                      this.props.selectedQuestionPreviousXenatus(
+                        this.props.selectedQuestionNumberXenatus
+                      );
+                      console.log(this.props);
+                    }}
+                  >
+                    PREVIOUS
+                  </button>
+                  <button
+                    onClick={() =>
+                      this.submit(this, this.props.questionsXenatus)
+                    }
+                  >
+                    SUBMIT
+                  </button>
+                  <button
+                    onClick={() => {
+                      this.props.selectedQuestionNextXenatus(
+                        this.props.selectedQuestionNumberXenatus
+                      );
+                    }}
+                  >
+                    NEXT
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -321,7 +376,7 @@ const mapDispatchToProps = (dispatch) => ({
   setFetchedQuestionsToStateXenatus: (questions) =>
     dispatch(setFetchedQuestionsToStateXenatus(questions)),
   selectedQuestionNextXenatus: (num) => {
-    if (num === 4) {
+    if (num === 34) {
     } else {
       dispatch(selectedQuestionNextXenatus(num));
     }
@@ -332,7 +387,8 @@ const mapDispatchToProps = (dispatch) => ({
       dispatch(selectedQuestionPreviousXenatus(num));
     }
   },
-  setSelectedQuestionXenatus: (num) => dispatch(setSelectedQuestionXenatus(num)),
+  setSelectedQuestionXenatus: (num) =>
+    dispatch(setSelectedQuestionXenatus(num)),
   setRecentFetchedTime: (time) => dispatch(setRecentFetchedTime(time)),
 });
 

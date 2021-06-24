@@ -1,4 +1,4 @@
-//prev,next max limits hardcoded change.
+//uncomment slot in component did mount
 
 import React, { Component } from "react";
 import axios from "axios";
@@ -26,7 +26,7 @@ import "./quiz-page.styles.scss";
 
 //import GridComponent from "../../components/grid/grid.component";
 import McqComponent from "../../components/mcq-c2c/mcq.component";
-import TimerComponent from "../../components/timer/timer.component";
+import TimerComponent from "../../components/timer-c2c/timer.component";
 import Loader from "../../components/loader/loader.component";
 import TemporaryDrawer from "../../components/drawer-c2c/TemporaryDrawer";
 
@@ -52,15 +52,27 @@ class QuizPageCTC extends Component {
   componentDidMount() {
     console.log("this.props is ", this.props);
     console.log("state before setting mounted to true", this.state);
-    // if(this.firstTime===false)
-    // {
-    //   this.firstTime=true;
-    //   Location.reload(false)
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener("popstate", function (event) {
+      window.history.pushState(null, document.title, window.location.href);
+    });
 
+    //uncomment for slot
+    // const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 25, 18, 30, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 25, 19, 0, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+    // // console.log("current compared to prev",prevDate<date,nextDate>date);
+
+    // if(!(date>prevDate&&date<nextDate))
+    // {
+    //   this.props.history.push("/")
     // }
     if (this.props.questionsC2c.length === 0) {
       axios
-        .post("https://api.xeniamcq.co.in/c2c/fetchQuestions")
+        .post("http://api.xeniamcq.co.in/c2c/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -78,7 +90,8 @@ class QuizPageCTC extends Component {
     }
     console.log(this.props);
     var link =
-      "https://api.xeniamcq.co.in/c2c/getTime/" + this.props.match.params.authToken;
+      "http://api.xeniamcq.co.in/c2c/getTime/" +
+      this.props.match.params.authToken;
     console.log(link);
     axios
       .post(link)
@@ -118,7 +131,7 @@ class QuizPageCTC extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "https://api.xeniamcq.co.in/c2c/saveResponse/" +
+      "http://api.xeniamcq.co.in/c2c/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)
@@ -167,7 +180,7 @@ class QuizPageCTC extends Component {
             </div>
             <div className="row row2">
               <div className="col-lg-2.5 col-md-3 col-sm-11 "></div>
-              <div className="col-lg-7 col-md-7 col-sm-1">
+              {/* <div className="col-lg-7 col-md-7 col-sm-1">
                 <Wrapper>
                   <div className="row row1">
                     <ButtonGroup>
@@ -209,6 +222,41 @@ class QuizPageCTC extends Component {
                     </ButtonGroup>
                   </div>
                 </Wrapper>
+              </div> */}
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                <div className="question-button-group">
+                  <button
+                    onClick={() => {
+                      this.props.selectedQuestionPreviousC2c(
+                        this.props.selectedQuestionNumberC2c
+                      );
+                      console.log(this.props);
+                    }}
+                  >
+                    PREVIOUS
+                  </button>
+                  <button
+                    onClick={() => this.submit(this, this.props.questionsC2c)}
+                  >
+                    SUBMIT
+                  </button>
+                  <button
+                    onClick={() => {
+                      this.props.selectedQuestionNextC2c(
+                        this.props.selectedQuestionNumberC2c
+                      );
+                    }}
+                  >
+                    NEXT
+                  </button>
+                </div>
               </div>
             </div>
           </div>
