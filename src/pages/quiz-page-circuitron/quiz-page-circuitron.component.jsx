@@ -63,7 +63,7 @@ class QuizPageCircuitRon extends Component {
     console.log("current date is",date.toLocaleString());
     const prevDate=new Date(2021, 5, 25, 13, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 14, 05, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 14, 5, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
     // console.log("current compared to prev",prevDate<date,nextDate>date);
 
