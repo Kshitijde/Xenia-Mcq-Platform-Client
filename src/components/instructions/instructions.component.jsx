@@ -11,10 +11,10 @@ function Instructions() {
       <p>
         <ol>
           <li>Read all the instructions carefully.</li>
-          <li>Login in your given time slot at 1.30 pm sharp.Event will end at exactly 2.00pm</li>
+          <li>Login in your given time slot at 6.30 pm sharp.Event will end at exactly 7.00pm</li>
           <li>
-            Ensure that you are in the MS Teams meeting for the entire duration of the test,the link
-            is shared on your email.
+            Ensure that you are in the meeting for the entire duration of the test,the link
+            is shared on your whatsapp group.
           </li>
           <li>There will be no negative marking</li>
           <li>In case of a tie,best time will be considered,so submit when done asap</li>
