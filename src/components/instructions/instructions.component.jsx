@@ -16,6 +16,8 @@ function Instructions() {
             Ensure that you are in the MS Teams meeting for the entire duration of the test,the link
             is shared on your email.
           </li>
+          <li>There will be no negative marking</li>
+          <li>In case of a tie,best time will be considered,so submit when done asap</li>
           <li>Your test would be auto-submitted and end at 00:00:00</li>
           <li>You will have {minutes} minutes to solve {noOfQuestion} questions</li>
           <li>
