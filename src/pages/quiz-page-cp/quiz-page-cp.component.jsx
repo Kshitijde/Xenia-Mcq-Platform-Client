@@ -57,13 +57,20 @@ class QuizPageCP extends Component {
       window.history.pushState(null, document.title, window.location.href);
     });
     //12.30 to 12.50
+    // const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 25, 12, 30, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 25, 12, 50, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+
     const date=new Date();
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 12, 30, 0, 0);
+    const prevDate=new Date(2021, 5, 25, 10, 35, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 12, 50, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 10, 45, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
-    // console.log("current compared to prev",prevDate<date,nextDate>date);
+    console.log("current compared to prev",prevDate<date,nextDate>date);
 
     if(!(date>prevDate&&date<nextDate))
     {
