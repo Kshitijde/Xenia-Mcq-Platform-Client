@@ -12,7 +12,7 @@ function Loader() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 10000);
   }, []);
   return (
     <div className="loaderStyling">
