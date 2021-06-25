@@ -59,19 +59,14 @@ class QuizPageCTC extends Component {
 
     //uncomment for slot
     //18.30-19.00
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 18, 30, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 19, 15, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-    // console.log("current compared to prev",prevDate<date,nextDate>date);
     const date=new Date();
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 16, 30, 0, 0);
+    const prevDate=new Date(2021, 5, 25, 18, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 17, 50, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 19, 15, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
+    console.log("current compared to prev",prevDate<date,nextDate>date);
+  
 
     if(!(date>prevDate&&date<nextDate))
     {
