@@ -17,7 +17,7 @@ const persistConfig = {
     "user",
     "circuitronQuestion",
     "c2cQuestion",
-    "xenatusQuestion",
+    // "xenatusQuestion",
     "couchPotatoQuestion",
   ],
 };
