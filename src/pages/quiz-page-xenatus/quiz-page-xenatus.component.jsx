@@ -76,7 +76,7 @@ class QuizPageXenatus extends Component {
     console.log("current date is",date.toLocaleString());
     const prevDate=new Date(2021, 5, 25, 10, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 11, 00, 0, 0);
+    const nextDate=new Date(2021, 5, 25, 11, 0, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
 
     if(!(date>prevDate&&date<nextDate))
