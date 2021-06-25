@@ -3,15 +3,15 @@ import MenuIcon from "@material-ui/icons/Menu";
 import "./instructions.styles.scss";
 import StopIcon from "@material-ui/icons/Stop";
 function Instructions() {
-  const minutes = 20;
-  const noOfQuestion = 80;
+  const minutes = 30;
+  const noOfQuestion = 30;
   return (
     <div className="intruction-div">
       <h1>Instructions</h1>
       <p>
         <ol>
           <li>Read all the instructions carefully.</li>
-          <li>Login in your given time slot at 12.30 pm sharp.Event will end at exactly 12.50pm</li>
+          <li>Login in your given time slot at 1.30 pm sharp.Event will end at exactly 2.00pm</li>
           <li>
             Ensure that you are in the MS Teams meeting for the entire duration of the test,the link
             is shared on your email.
