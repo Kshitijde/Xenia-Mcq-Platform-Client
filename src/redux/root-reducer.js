@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   question: questionReducer,
   circuitronQuestion: circuitronQuestionReducer,
-  // c2cQuestion: c2cQuestionReducer,
+  c2cQuestion: c2cQuestionReducer,
   xenatusQuestion: xenatusQuestionReducer,
   couchPotatoQuestion: couchPotatoQuestionReducer,
   general: generalReducer,
