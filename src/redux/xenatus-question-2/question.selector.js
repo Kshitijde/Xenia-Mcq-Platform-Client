@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
 
-const question=state=>state.XenatusQuestion2;
+const question=state=>state.xenatusQuestion2;
 
 export const getQuestionsXenatus2=createSelector(
     [question],

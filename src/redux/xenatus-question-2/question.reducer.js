@@ -31,31 +31,31 @@ const INITIAL_STATE={
  
  const questionReducer=(state=INITIAL_STATE,action)=>{
      switch(action.type){
-        case QuestionActionTypes.SET_FETCHED_QUESTIONS_TO_STATE_Xenatus2:
+        case QuestionActionTypes.SET_FETCHED_QUESTIONS_TO_STATE_XENATUS2:
             return{
                 ...state,
                 questions:action.payload
             }
-        case QuestionActionTypes.SET_SELECTED_QUESTION_Xenatus2:
+        case QuestionActionTypes.SET_SELECTED_QUESTION_XENATUS2:
             return{
                 ...state,
                 selectedQuestion:state.questions[action.payload],
                 selectedQuestionNumber:action.payload
             }
-        case QuestionActionTypes.SELECTED_QUESTION_NEXT_Xenatus2:
+        case QuestionActionTypes.SELECTED_QUESTION_NEXT_XENATUS2:
             return{
                 ...state,
                 selectedQuestion:state.questions[action.payload],
                 selectedQuestionNumber:action.payload
     
             }
-        case QuestionActionTypes.SELECTED_QUESTION_PREVIOUS_Xenatus2:
+        case QuestionActionTypes.SELECTED_QUESTION_PREVIOUS_XENATUS2:
             return{
                 ...state,
                 selectedQuestion:state.questions[action.payload],
                 selectedQuestionNumber:action.payload
             }
-        case QuestionActionTypes.SET_SELECTED_ANSWER_Xenatus2:
+        case QuestionActionTypes.SET_SELECTED_ANSWER_XENATUS2:
             var Questions=state.questions;
             var question=Questions[state.selectedQuestionNumber];
             question.selectedAnswer=action.payload;
