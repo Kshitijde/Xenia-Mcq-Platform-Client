@@ -9,6 +9,7 @@ import circuitronQuestionReducer from "./circuitron-question/question.reducer";
 import c2cQuestionReducer from "./c2c-question/question.reducer";
 import couchPotatoQuestionReducer from "./couchPotato-question/question.reducer";
 import xenatusQuestionReducer from "./xenatus-question/question.reducer";
+import xenatusQuestionReducer2 from "./xenatus-question-2/question.reducer";
 
 const persistConfig = {
   key: "root",
@@ -18,6 +19,7 @@ const persistConfig = {
     "circuitronQuestion",
     "c2cQuestion",
     "xenatusQuestion",
+    "xenatusQuestion2",
     "couchPotatoQuestion",
   ],
 };
@@ -30,6 +32,7 @@ const rootReducer = combineReducers({
   xenatusQuestion: xenatusQuestionReducer,
   couchPotatoQuestion: couchPotatoQuestionReducer,
   general: generalReducer,
+  xenatusQuestion2: xenatusQuestionReducer2
 });
 
 export default persistReducer(persistConfig, rootReducer);

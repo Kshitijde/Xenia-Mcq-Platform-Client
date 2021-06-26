@@ -4,14 +4,14 @@ import "./instructions.styles.scss";
 import StopIcon from "@material-ui/icons/Stop";
 function Instructions() {
   const minutes = 30;
-  const noOfQuestion = 35;
+  const noOfQuestion = 30;
   return (
     <div className="intruction-div">
       <h1>Instructions</h1>
       <p>
         <ol>
           <li>Read all the instructions carefully.</li>
-          <li>Login in your given time slot at 10.00 pm sharp.Event will end at exactly 10.30pm</li>
+          <li>Login in your given time slot at 10.30 pm sharp.Event will end at exactly 11.00pm</li>
           <li>
             Ensure that you are in the meeting for the entire duration of the test,the link
             is shared on your whatsapp group.

@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getSelectedQuestionXenatus,getSelectedQuestionNumberXenatus } from "../../redux/xenatus-question/question.selector";
+import { getSelectedQuestionXenatus2,getSelectedQuestionNumberXenatus2 } from "../../redux/xenatus-question-2/question.selector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,11 +49,11 @@ function NoCardMedia(props) {
   return <div></div>;
 }
 
-const Question = function ({ questionXenatus,questionNumberXenatus}) {
+const Question = function ({ questionXenatus2,questionNumberXenatus2}) {
   const classes = useStyles();
   const [value, setValue] = React.useState("Controlled");
 
-  const isImage = questionXenatus.image;
+  const isImage = questionXenatus2.image;
   // const handleChange = (event) => {
   //   setValue(event.target.value);
   // };
@@ -62,11 +63,11 @@ const Question = function ({ questionXenatus,questionNumberXenatus}) {
         <div className="question" style={{ justifyItems: "left" }}>
           <TextField
             id="standard-multiline-flexible"
-            label={`Question #${questionNumberXenatus+1}`}
+            label={`Question #${questionNumberXenatus2+1}`}
             multiline
             rowsMax={3}
             // value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna sha "
-            value={questionXenatus.content}
+            value={questionXenatus2.content}
             // onChange={handleChange}
             InputProps={{
               style: { fontSize: 25 },
@@ -76,7 +77,7 @@ const Question = function ({ questionXenatus,questionNumberXenatus}) {
           />
 
           {isImage != undefined ? (
-            <HaveCardMedia image={questionXenatus.image} />
+            <HaveCardMedia image={questionXenatus2.image} />
           ) : (
             <NoCardMedia />
           )}
@@ -94,8 +95,8 @@ const Question = function ({ questionXenatus,questionNumberXenatus}) {
 };
 
 const mapStateToProps = createStructuredSelector({
-  questionXenatus: getSelectedQuestionXenatus,
-  questionNumberXenatus: getSelectedQuestionNumberXenatus
+  questionXenatus2: getSelectedQuestionXenatus2,
+  questionNumberXenatus2: getSelectedQuestionNumberXenatus2
 });
 const Wrapper = styled.section`
   .media {

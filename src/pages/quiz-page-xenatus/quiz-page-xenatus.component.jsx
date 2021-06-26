@@ -14,12 +14,24 @@ import {
   setSelectedQuestionXenatus,
   // setRecentFetchedTime
 } from "../../redux/xenatus-question/question.actions";
+import {
+  setFetchedQuestionsToStateXenatus2,
+  selectedQuestionNextXenatus2,
+  selectedQuestionPreviousXenatus2,
+  setSelectedQuestionXenatus2,
+  // setRecentFetchedTime
+} from "../../redux/xenatus-question-2/question.actions";
 import { setRecentFetchedTime } from "../../redux/general/general.actions";
 import {
   getSelectedQuestionXenatus,
   getSelectedQuestionNumberXenatus,
   getQuestionsXenatus,
 } from "../../redux/xenatus-question/question.selector";
+import {
+  getSelectedQuestionXenatus2,
+  getSelectedQuestionNumberXenatus2,
+  getQuestionsXenatus2,
+} from "../../redux/xenatus-question-2/question.selector";
 import { getRecentFetchedTime } from "../../redux/general/general.selector";
 
 import "./quiz-page.styles.scss";
@@ -63,12 +75,20 @@ class QuizPageXenatus extends Component {
     //   Location.reload(false)
 
     // }
-    // 22.00-22.30
+    // 22.30-23.05
+    // const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 26, 22, 30, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 26, 23, 05, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+    // console.log("current compared to prev",prevDate<date,nextDate>date);
+
     const date=new Date();
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 22, 0, 0, 0);
+    const prevDate=new Date(2021, 5, 26, 19, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 22, 45, 0, 0);
+    const nextDate=new Date(2021, 5, 26, 20, 05, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
     console.log("current compared to prev",prevDate<date,nextDate>date);
 
@@ -77,14 +97,14 @@ class QuizPageXenatus extends Component {
     {
       this.props.history.push("/")
     }else{
-    if (this.props.questionsXenatus.length === 0) {
+    if (this.props.questionsXenatus2.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/xenatus/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
-          this.props.setFetchedQuestionsToStateXenatus(res.data);
-          this.props.setSelectedQuestionXenatus(1);
+          this.props.setFetchedQuestionsToStateXenatus2(res.data);
+          this.props.setSelectedQuestionXenatus2(1);
           console.log("action initialised");
           this.setState({ mounted: true }, console.log(this.state));
         })
@@ -92,7 +112,7 @@ class QuizPageXenatus extends Component {
           console.log("an error has occurred : ", error);
         });
     } else {
-      this.props.setSelectedQuestionXenatus(1);
+      this.props.setSelectedQuestionXenatus2(1);
       this.setState({ mounted: true }, () => console.log(this.state));
     }
     console.log(this.props);
@@ -108,7 +128,7 @@ class QuizPageXenatus extends Component {
           this.props.history.push("/");
         } else {
           if (res.data.time <= 0) {
-            this.submit(this, this.props.questionsXenatus);
+            this.submit(this, this.props.questionsXenatus2);
           }
           this.props.setRecentFetchedTime(res.data.time);
         }
@@ -123,7 +143,7 @@ class QuizPageXenatus extends Component {
     
     if (this.props.fetchedTime <= 0) {
       console.log("here in if of will update");
-      this.submit(this, this.props.questionsXenatus);
+      this.submit(this, this.props.questionsXenatus2);
     }
   }
   }
@@ -131,7 +151,7 @@ class QuizPageXenatus extends Component {
   componentWillUpdate() {
     if (this.props.fetchedTime <= 0) {
       console.log("here in if of will update");
-      this.submit(this, this.props.questionsXenatus);
+      this.submit(this, this.props.questionsXenatus2);
     }
     console.log("Fetched time in main component is", this.props.fetchedTime);
   }
@@ -253,8 +273,8 @@ class QuizPageXenatus extends Component {
                 <div className="question-button-group">
                   <button
                     onClick={() => {
-                      this.props.selectedQuestionPreviousXenatus(
-                        this.props.selectedQuestionNumberXenatus
+                      this.props.selectedQuestionPreviousXenatus2(
+                        this.props.selectedQuestionNumberXenatus2
                       );
                       console.log(this.props);
                     }}
@@ -270,8 +290,8 @@ class QuizPageXenatus extends Component {
                   </button>
                   <button
                     onClick={() => {
-                      this.props.selectedQuestionNextXenatus(
-                        this.props.selectedQuestionNumberXenatus
+                      this.props.selectedQuestionNextXenatus2(
+                        this.props.selectedQuestionNumberXenatus2
                       );
                     }}
                   >
@@ -389,31 +409,31 @@ const Wrapper = styled.section`
 // }
 
 const mapDispatchToProps = (dispatch) => ({
-  setFetchedQuestionsToStateXenatus: (questions) =>
-    dispatch(setFetchedQuestionsToStateXenatus(questions)),
-  selectedQuestionNextXenatus: (num) => {
+  setFetchedQuestionsToStateXenatus2: (questions) =>
+    dispatch(setFetchedQuestionsToStateXenatus2(questions)),
+  selectedQuestionNextXenatus2: (num) => {
     if (num === 34) {
       window.alert("This is the last question of this quiz!");
       window.location.reload();
     } else {
-      dispatch(selectedQuestionNextXenatus(num));
+      dispatch(selectedQuestionNextXenatus2(num));
     }
   },
-  selectedQuestionPreviousXenatus: (num) => {
+  selectedQuestionPreviousXenatus2: (num) => {
     if (num === 0) {
     } else {
-      dispatch(selectedQuestionPreviousXenatus(num));
+      dispatch(selectedQuestionPreviousXenatus2(num));
     }
   },
-  setSelectedQuestionXenatus: (num) =>
-    dispatch(setSelectedQuestionXenatus(num)),
+  setSelectedQuestionXenatus2: (num) =>
+    dispatch(setSelectedQuestionXenatus2(num)),
   setRecentFetchedTime: (time) => dispatch(setRecentFetchedTime(time)),
 });
 
 const mapStateToProps = createStructuredSelector({
-  questionsXenatus: getQuestionsXenatus,
-  selectedQuestionXenatus: getSelectedQuestionXenatus,
-  selectedQuestionNumberXenatus: getSelectedQuestionNumberXenatus,
+  questionsXenatus2: getQuestionsXenatus2,
+  selectedQuestionXenatus2: getSelectedQuestionXenatus2,
+  selectedQuestionNumberXenatus2: getSelectedQuestionNumberXenatus2,
   fetchedTime: getRecentFetchedTime,
 });
 

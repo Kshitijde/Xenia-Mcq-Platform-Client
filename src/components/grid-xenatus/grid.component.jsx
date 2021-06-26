@@ -11,13 +11,18 @@ import {
   getQuestionsXenatus,
   getSelectedQuestionNumberXenatus,
 } from "../../redux/xenatus-question/question.selector";
+import { setSelectedQuestionXenatus2 } from "../../redux/xenatus-question-2/question.actions";
+import {
+  getQuestionsXenatus2,
+  getSelectedQuestionNumberXenatus2,
+} from "../../redux/xenatus-question-2/question.selector";
 
 import { createStructuredSelector } from "reselect";
 
 const Grid = ({
-  setSelectedQuestionXenatus,
-  questionsXenatus,
-  selectedQuestionNumberXenatus,
+  setSelectedQuestionXenatus2,
+  questionsXenatus2,
+  selectedQuestionNumberXenatus2,
   mounted,
 }) => {
   return (
@@ -39,15 +44,15 @@ const Grid = ({
               const { id, num } = number;
               console.log(
                 "selcted question number is",
-                selectedQuestionNumberXenatus === num - 1
+                selectedQuestionNumberXenatus2 === num - 1
               );
               return (
                 <StyledButton
                   className="small-rectangle"
                   key={id}
-                  onClick={() => setSelectedQuestionXenatus(num)}
-                  marked={mounted ? questionsXenatus[num - 1].marked : false}
-                  selected={selectedQuestionNumberXenatus === num - 1}
+                  onClick={() => setSelectedQuestionXenatus2(num)}
+                  marked={mounted ? questionsXenatus2[num - 1].marked : false}
+                  selected={selectedQuestionNumberXenatus2 === num - 1}
                   style={{}}
                 >
                   <h4>{num}</h4>
@@ -214,12 +219,12 @@ const StyledButton = styled(Button)`
 `;
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedQuestionXenatus: (question) => dispatch(setSelectedQuestionXenatus(question)),
+  setSelectedQuestionXenatus2: (question) => dispatch(setSelectedQuestionXenatus2(question)),
 });
 
 const mapStateToProps = createStructuredSelector({
-  questionsXenatus: getQuestionsXenatus,
-  selectedQuestionNumberXenatus: getSelectedQuestionNumberXenatus,
+  questionsXenatus2: getQuestionsXenatus2,
+  selectedQuestionNumberXenatus2: getSelectedQuestionNumberXenatus2,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);

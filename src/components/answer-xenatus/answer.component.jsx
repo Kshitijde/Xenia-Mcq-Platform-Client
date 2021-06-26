@@ -14,7 +14,12 @@ import {
   getSelectedQuestionAnswersXenatus,
   getSelectedQuestionXenatus,
 } from "../../redux/xenatus-question/question.selector";
+import {
+  getSelectedQuestionAnswersXenatus2,
+  getSelectedQuestionXenatus2,
+} from "../../redux/xenatus-question-2/question.selector";
 import { setSelectedAnswerXenatus } from "../../redux/xenatus-question/question.actions";
+import { setSelectedAnswerXenatus2 } from "../../redux/xenatus-question-2/question.actions";
 import cyan from "@material-ui/core/colors/cyan";
 
 const StyledRadio = styled(Radio)`
@@ -24,11 +29,11 @@ const StyledRadio = styled(Radio)`
   }
 `;
 const RadioButtonsGroup = function ({
-  answersXenatus,
-  selectedQuestionXenatus,
-  setSelectedAnswerXenatus,
+  answersXenatus2,
+  selectedQuestionXenatus2,
+  setSelectedAnswerXenatus2,
 }) {
-  const selectedAnswer = selectedQuestionXenatus.selectedAnswer;
+  const selectedAnswer = selectedQuestionXenatus2.selectedAnswer;
   const [value, setValue] = React.useState(selectedAnswer);
 
   React.useEffect(() => {
@@ -37,7 +42,7 @@ const RadioButtonsGroup = function ({
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    setSelectedAnswerXenatus(event.target.value);
+    setSelectedAnswerXenatus2(event.target.value);
   };
   //{answers[0].text}
   //{answers[1].text}
@@ -55,24 +60,24 @@ const RadioButtonsGroup = function ({
           <FormControlLabel
             value="0"
             control={<StyledRadio />}
-            label={answersXenatus[0]}
+            label={answersXenatus2[0]}
             // label="Random Option Opp tion oOO ppp Random Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp"
             className="FormControlLabelStyling"
           />
           <FormControlLabel
             value="1"
             control={<StyledRadio />}
-            label={answersXenatus[1]}
+            label={answersXenatus2[1]}
           />
           <FormControlLabel
             value="2"
             control={<StyledRadio />}
-            label={answersXenatus[2]}
+            label={answersXenatus2[2]}
           />
           <FormControlLabel
             value="3"
             control={<StyledRadio />}
-            label={answersXenatus[3]}
+            label={answersXenatus2[3]}
           />
         </RadioGroup>
       </FormControl>
@@ -81,12 +86,12 @@ const RadioButtonsGroup = function ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  answersXenatus: getSelectedQuestionAnswersXenatus,
-  selectedQuestionXenatus: getSelectedQuestionXenatus,
+  answersXenatus2: getSelectedQuestionAnswersXenatus2,
+  selectedQuestionXenatus2: getSelectedQuestionXenatus2,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedAnswerXenatus: (num) => dispatch(setSelectedAnswerXenatus(num)),
+  setSelectedAnswerXenatus2: (num) => dispatch(setSelectedAnswerXenatus2(num)),
 });
 const Wrapper = styled.section`
   @media only screen and (min-width: 600px) {
