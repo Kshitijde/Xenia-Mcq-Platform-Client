@@ -88,7 +88,7 @@ class QuizPageXenatus extends Component {
     console.log("current date is",date.toLocaleString());
     const prevDate=new Date(2021, 5, 26, 19, 30, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 26, 20, 05, 0, 0);
+    const nextDate=new Date(2021, 5, 26, 20, 5, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
     console.log("current compared to prev",prevDate<date,nextDate>date);
 
