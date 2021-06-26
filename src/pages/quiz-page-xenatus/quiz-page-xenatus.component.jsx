@@ -412,7 +412,7 @@ const mapDispatchToProps = (dispatch) => ({
   setFetchedQuestionsToStateXenatus2: (questions) =>
     dispatch(setFetchedQuestionsToStateXenatus2(questions)),
   selectedQuestionNextXenatus2: (num) => {
-    if (num === 34) {
+    if (num === 29) {
       window.alert("This is the last question of this quiz!");
       window.location.reload();
     } else {
