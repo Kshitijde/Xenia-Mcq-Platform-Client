@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
   xenatusQuestion: xenatusQuestionReducer,
   couchPotatoQuestion: couchPotatoQuestionReducer,
   general: generalReducer,
-  // xenatusQuestion2: xenatusQuestionReducer2
+  xenatusQuestion2: xenatusQuestionReducer2
 });
 
 export default persistReducer(persistConfig, rootReducer);
