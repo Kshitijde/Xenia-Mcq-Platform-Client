@@ -283,7 +283,7 @@ class QuizPageXenatus extends Component {
                   </button>
                   <button
                     onClick={() =>
-                      this.submit(this, this.props.questionsXenatus)
+                      this.submit(this, this.props.questionsXenatus2)
                     }
                   >
                     SUBMIT
