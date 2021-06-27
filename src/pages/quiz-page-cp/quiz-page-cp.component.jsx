@@ -80,7 +80,7 @@ class QuizPageCP extends Component {
     console.log("current date is",date.toLocaleString());
     const prevDate=new Date(2021, 5, 27, 15, 0, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 27, 16, 20, 0, 0);
+    const nextDate=new Date(2021, 5, 27, 17, 20, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
 
 
