@@ -13,7 +13,7 @@ export const getSelectedQuestionCouchPotato2=createSelector(
 );
 
 export const getSelectedQuestionAnswersCouchPotato2=createSelector(
-    [getSelectedQuestionCouchPotato],
+    [getSelectedQuestionCouchPotato2],
     getSelectedQuestion=>getSelectedQuestion.answers
 );
 
