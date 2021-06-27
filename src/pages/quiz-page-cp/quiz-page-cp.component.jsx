@@ -14,12 +14,24 @@ import {
   setSelectedQuestionCouchPotato,
   // setRecentFetchedTime
 } from "../../redux/couchPotato-question/question.actions";
+import {
+  setFetchedQuestionsToStateCouchPotato2,
+  selectedQuestionNextCouchPotato2,
+  selectedQuestionPreviousCouchPotato2,
+  setSelectedQuestionCouchPotato2,
+  // setRecentFetchedTime
+} from "../../redux/couchPotato-question-2/question.actions";
 import { setRecentFetchedTime } from "../../redux/general/general.actions";
 import {
   getSelectedQuestionCouchPotato,
   getSelectedQuestionNumberCouchPotato,
   getQuestionsCouchPotato,
 } from "../../redux/couchPotato-question/question.selector";
+import {
+  getSelectedQuestionCouchPotato2,
+  getSelectedQuestionNumberCouchPotato2,
+  getQuestionsCouchPotato2,
+} from "../../redux/couchPotato-question-2/question.selector";
 import { getRecentFetchedTime } from "../../redux/general/general.selector";
 
 import "./quiz-page.styles.scss";
@@ -57,33 +69,30 @@ class QuizPageCP extends Component {
       window.history.pushState(null, document.title, window.location.href);
     });
     //12.30 to 12.50
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 12, 30, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 12, 55, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
+    //10.00 to 10.15 pm
     const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 27, 22, 0, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 27, 22, 20, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 5, 0, 0, 0);
+    const prevDate=new Date(2021, 5, 27, 15, 0, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 5, 30, 0, 0);
+    const nextDate=new Date(2021, 5, 27, 16, 20, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
 
-    // const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 25, 10, 35, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 25, 11, 30, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-    // console.log("current compared to prev",prevDate<date,nextDate>date);
+
+    
+    console.log("current compared to prev",prevDate<date,nextDate>date);
 
     if(!(date>prevDate&&date<nextDate))
     {
       this.props.history.push("/")
     }
     else{
-    if (this.props.questionsCouchPotato.length === 0) {
+    if (this.props.questionsCouchPotato2.length === 0) {
       axios
         .post("https://api.xeniamcq.co.in/couchPotato/fetchQuestions", {
           selectedSeries: this.props.location.state.selectedSeries,
@@ -91,8 +100,8 @@ class QuizPageCP extends Component {
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
-          this.props.setFetchedQuestionsToStateCouchPotato(res.data);
-          this.props.setSelectedQuestionCouchPotato(1);
+          this.props.setFetchedQuestionsToStateCouchPotato2(res.data);
+          this.props.setSelectedQuestionCouchPotato2(1);
           console.log("action initialised");
           this.setState({ mounted: true }, console.log(this.state));
         })
@@ -100,7 +109,7 @@ class QuizPageCP extends Component {
           console.log("an error has occurred : ", error);
         });
     } else {
-      this.props.setSelectedQuestionCouchPotato(1);
+      this.props.setSelectedQuestionCouchPotato2(1);
       this.setState({ mounted: true }, () => console.log(this.state));
     }
     console.log(this.props);
@@ -116,7 +125,7 @@ class QuizPageCP extends Component {
           this.props.history.push("/");
         } else {
           if (res.data.time <= 0) {
-            this.submit(this, this.props.questionsCouchPotato);
+            this.submit(this, this.props.questionsCouchPotato2);
           }
           this.props.setRecentFetchedTime(res.data.time);
         }
@@ -130,7 +139,7 @@ class QuizPageCP extends Component {
       });
     if (this.props.fetchedTime <= 0) {
       console.log("here in if of will update");
-      this.submit(this, this.props.questionsCouchPotato);
+      this.submit(this, this.props.questionsCouchPotato2);
     }
   }
   }
@@ -138,7 +147,7 @@ class QuizPageCP extends Component {
   componentWillUpdate() {
     if (this.props.fetchedTime <= 0) {
       console.log("here in if of will update");
-      this.submit(this, this.props.questionsCouchPotato);
+      this.submit(this, this.props.questionsCouchPotato2);
     }
     console.log("Fetched time in main component is", this.props.fetchedTime);
   }
@@ -259,8 +268,8 @@ class QuizPageCP extends Component {
                 <div className="question-button-group">
                   <button
                     onClick={() => {
-                      this.props.selectedQuestionPreviousCouchPotato(
-                        this.props.selectedQuestionNumberCouchPotato
+                      this.props.selectedQuestionPreviousCouchPotato2(
+                        this.props.selectedQuestionNumberCouchPotato2
                       );
                       console.log(this.props);
                     }}
@@ -269,15 +278,15 @@ class QuizPageCP extends Component {
                   </button>
                   <button
                     onClick={() =>
-                      this.submit(this, this.props.questionsCouchPotato)
+                      this.submit(this, this.props.questionsCouchPotato2)
                     }
                   >
                     SUBMIT
                   </button>
                   <button
                     onClick={() => {
-                      this.props.selectedQuestionNextCouchPotato(
-                        this.props.selectedQuestionNumberCouchPotato
+                      this.props.selectedQuestionNextCouchPotato2(
+                        this.props.selectedQuestionNumberCouchPotato2
                       );
                     }}
                   >
@@ -395,31 +404,31 @@ const Wrapper = styled.section`
 // }
 
 const mapDispatchToProps = (dispatch) => ({
-  setFetchedQuestionsToStateCouchPotato: (questions) =>
-    dispatch(setFetchedQuestionsToStateCouchPotato(questions)),
-  selectedQuestionNextCouchPotato: (num) => {
-    if (num === 79) {
+  setFetchedQuestionsToStateCouchPotato2: (questions) =>
+    dispatch(setFetchedQuestionsToStateCouchPotato2(questions)),
+  selectedQuestionNextCouchPotato2: (num) => {
+    if (num === 39) {
       window.alert("This is the last question of this quiz!");
       window.location.reload();
     } else {
-      dispatch(selectedQuestionNextCouchPotato(num));
+      dispatch(selectedQuestionNextCouchPotato2(num));
     }
   },
-  selectedQuestionPreviousCouchPotato: (num) => {
+  selectedQuestionPreviousCouchPotato2: (num) => {
     if (num === 0) {
     } else {
-      dispatch(selectedQuestionPreviousCouchPotato(num));
+      dispatch(selectedQuestionPreviousCouchPotato2(num));
     }
   },
-  setSelectedQuestionCouchPotato: (num) =>
-    dispatch(setSelectedQuestionCouchPotato(num)),
+  setSelectedQuestionCouchPotato2: (num) =>
+    dispatch(setSelectedQuestionCouchPotato2(num)),
   setRecentFetchedTime: (time) => dispatch(setRecentFetchedTime(time)),
 });
 
 const mapStateToProps = createStructuredSelector({
-  questionsCouchPotato: getQuestionsCouchPotato,
-  selectedQuestionCouchPotato: getSelectedQuestionCouchPotato,
-  selectedQuestionNumberCouchPotato: getSelectedQuestionNumberCouchPotato,
+  questionsCouchPotato2: getQuestionsCouchPotato2,
+  selectedQuestionCouchPotato2: getSelectedQuestionCouchPotato2,
+  selectedQuestionNumberCouchPotato2: getSelectedQuestionNumberCouchPotato2,
   fetchedTime: getRecentFetchedTime,
 });
 

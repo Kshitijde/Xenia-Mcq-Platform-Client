@@ -14,7 +14,13 @@ import {
   getSelectedQuestionAnswersCouchPotato,
   getSelectedQuestionCouchPotato,
 } from "../../redux/couchPotato-question/question.selector";
+import {
+  getSelectedQuestionAnswersCouchPotato2,
+  getSelectedQuestionCouchPotato2,
+} from "../../redux/couchPotato-question-2/question.selector";
 import { setSelectedAnswerCouchPotato } from "../../redux/couchPotato-question/question.actions";
+import { setSelectedAnswerCouchPotato2 } from "../../redux/couchPotato-question-2/question.actions";
+
 import cyan from "@material-ui/core/colors/cyan";
 
 const StyledRadio = styled(Radio)`
@@ -24,11 +30,11 @@ const StyledRadio = styled(Radio)`
   }
 `;
 const RadioButtonsGroup = function ({
-  answersCouchPotato,
-  selectedQuestionCouchPotato,
-  setSelectedAnswerCouchPotato,
+  answersCouchPotato2,
+  selectedQuestionCouchPotato2,
+  setSelectedAnswerCouchPotato2,
 }) {
-  const selectedAnswer = selectedQuestionCouchPotato.selectedAnswer;
+  const selectedAnswer = selectedQuestionCouchPotato2.selectedAnswer;
   const [value, setValue] = React.useState(selectedAnswer);
 
   React.useEffect(() => {
@@ -37,7 +43,7 @@ const RadioButtonsGroup = function ({
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    setSelectedAnswerCouchPotato(event.target.value);
+    setSelectedAnswerCouchPotato2(event.target.value);
   };
   //{answers[0].text}
   //{answers[1].text}
@@ -55,24 +61,24 @@ const RadioButtonsGroup = function ({
           <FormControlLabel
             value="0"
             control={<StyledRadio />}
-            label={answersCouchPotato[0]}
+            label={answersCouchPotato2[0]}
             // label="Random Option Opp tion oOO ppp Random Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp Option Opp tion oOO ppp"
             className="FormControlLabelStyling"
           />
           <FormControlLabel
             value="1"
             control={<StyledRadio />}
-            label={answersCouchPotato[1]}
+            label={answersCouchPotato2[1]}
           />
           <FormControlLabel
             value="2"
             control={<StyledRadio />}
-            label={answersCouchPotato[2]}
+            label={answersCouchPotato2[2]}
           />
           <FormControlLabel
             value="3"
             control={<StyledRadio />}
-            label={answersCouchPotato[3]}
+            label={answersCouchPotato2[3]}
           />
         </RadioGroup>
       </FormControl>
@@ -81,12 +87,12 @@ const RadioButtonsGroup = function ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  answersCouchPotato: getSelectedQuestionAnswersCouchPotato,
-  selectedQuestionCouchPotato: getSelectedQuestionCouchPotato,
+  answersCouchPotato2: getSelectedQuestionAnswersCouchPotato2,
+  selectedQuestionCouchPotato2: getSelectedQuestionCouchPotato2,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedAnswerCouchPotato: (num) => dispatch(setSelectedAnswerCouchPotato(num)),
+  setSelectedAnswerCouchPotato2: (num) => dispatch(setSelectedAnswerCouchPotato2(num)),
 });
 const Wrapper = styled.section`
   @media only screen and (min-width: 600px) {

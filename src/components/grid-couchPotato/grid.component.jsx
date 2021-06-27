@@ -7,17 +7,23 @@ import { numbers } from "../../utils/number-couchpotato";
 import { Button } from "@material-ui/core";
 
 import { setSelectedQuestionCouchPotato } from "../../redux/couchPotato-question/question.actions";
+import { setSelectedQuestionCouchPotato2 } from "../../redux/couchPotato-question-2/question.actions";
+
 import {
   getQuestionsCouchPotato,
   getSelectedQuestionNumberCouchPotato,
 } from "../../redux/couchPotato-question/question.selector";
+import {
+  getQuestionsCouchPotato2,
+  getSelectedQuestionNumberCouchPotato2,
+} from "../../redux/couchPotato-question-2/question.selector";
 
 import { createStructuredSelector } from "reselect";
 
 const Grid = ({
-  setSelectedQuestionCouchPotato,
-  questionsCouchPotato,
-  selectedQuestionNumberCouchPotato,
+  setSelectedQuestionCouchPotato2,
+  questionsCouchPotato2,
+  selectedQuestionNumberCouchPotato2,
   mounted,
 }) => {
   return (
@@ -39,15 +45,15 @@ const Grid = ({
               const { id, num } = number;
               console.log(
                 "selcted question number is",
-                selectedQuestionNumberCouchPotato === num - 1
+                selectedQuestionNumberCouchPotato2 === num - 1
               );
               return (
                 <StyledButton
                   className="small-rectangle"
                   key={id}
-                  onClick={() => setSelectedQuestionCouchPotato(num)}
-                  marked={mounted ? questionsCouchPotato[num - 1].marked : false}
-                  selected={selectedQuestionNumberCouchPotato === num - 1}
+                  onClick={() => setSelectedQuestionCouchPotato2(num)}
+                  marked={mounted ? questionsCouchPotato2[num - 1].marked : false}
+                  selected={selectedQuestionNumberCouchPotato2 === num - 1}
                   style={{}}
                 >
                   <h4>{num}</h4>
@@ -215,12 +221,12 @@ const StyledButton = styled(Button)`
 `;
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedQuestionCouchPotato: (question) => dispatch(setSelectedQuestionCouchPotato(question)),
+  setSelectedQuestionCouchPotato2: (question) => dispatch(setSelectedQuestionCouchPotato2(question)),
 });
 
 const mapStateToProps = createStructuredSelector({
-  questionsCouchPotato: getQuestionsCouchPotato,
-  selectedQuestionNumberCouchPotato: getSelectedQuestionNumberCouchPotato,
+  questionsCouchPotato2: getQuestionsCouchPotato2,
+  selectedQuestionNumberCouchPotato2: getSelectedQuestionNumberCouchPotato2,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);

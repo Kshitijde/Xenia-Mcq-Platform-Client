@@ -8,6 +8,7 @@ import generalReducer from "./general/general.reducer";
 import circuitronQuestionReducer from "./circuitron-question/question.reducer";
 import c2cQuestionReducer from "./c2c-question/question.reducer";
 import couchPotatoQuestionReducer from "./couchPotato-question/question.reducer";
+import couchPotatoQuestionReducer2 from "./couchPotato-question-2/question.reducer";
 import xenatusQuestionReducer from "./xenatus-question/question.reducer";
 import xenatusQuestionReducer2 from "./xenatus-question-2/question.reducer";
 
@@ -21,6 +22,7 @@ const persistConfig = {
     "xenatusQuestion",
     "xenatusQuestion2",
     "couchPotatoQuestion",
+    "couchPotatoQuestion2",
   ],
 };
 
@@ -31,6 +33,7 @@ const rootReducer = combineReducers({
   c2cQuestion: c2cQuestionReducer,
   xenatusQuestion: xenatusQuestionReducer,
   couchPotatoQuestion: couchPotatoQuestionReducer,
+  couchPotatoQuestion2: couchPotatoQuestionReducer2,
   general: generalReducer,
   xenatusQuestion2: xenatusQuestionReducer2
 });

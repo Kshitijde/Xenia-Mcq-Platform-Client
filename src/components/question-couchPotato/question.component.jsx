@@ -9,6 +9,8 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getSelectedQuestionCouchPotato,getSelectedQuestionNumberCouchPotato } from "../../redux/couchPotato-question/question.selector";
+import { getSelectedQuestionCouchPotato2,getSelectedQuestionNumberCouchPotato2 } from "../../redux/couchPotato-question-2/question.selector";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,11 +51,11 @@ function NoCardMedia(props) {
 }
 
 
-const Question = function ({ questionCouchPotato,questionNumberCouchPotato}) {
+const Question = function ({ questionCouchPotato2,questionNumberCouchPotato2}) {
   const classes = useStyles();
   const [value, setValue] = React.useState("Controlled");
 
-  const isImage = questionCouchPotato.image;
+  const isImage = questionCouchPotato2.image;
   // const handleChange = (event) => {
   //   setValue(event.target.value);
   // };
@@ -63,11 +65,11 @@ const Question = function ({ questionCouchPotato,questionNumberCouchPotato}) {
         <div className="question" style={{ justifyItems: "left" }}>
           <TextField
             id="standard-multiline-flexible"
-            label={`Question #${questionNumberCouchPotato+1}`}
+            label={`Question #${questionNumberCouchPotato2+1}`}
             multiline
             rowsMax={3}
             // value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna sha "
-            value={questionCouchPotato.content}
+            value={questionCouchPotato2.content}
             // onChange={handleChange}
             InputProps={{
               style: { fontSize: 25 },
@@ -77,7 +79,7 @@ const Question = function ({ questionCouchPotato,questionNumberCouchPotato}) {
           />
 
           {isImage != undefined ? (
-            <HaveCardMedia image={questionCouchPotato.image} />
+            <HaveCardMedia image={questionCouchPotato2.image} />
           ) : (
             <NoCardMedia />
           )}
@@ -95,8 +97,8 @@ const Question = function ({ questionCouchPotato,questionNumberCouchPotato}) {
 };
 
 const mapStateToProps = createStructuredSelector({
-  questionCouchPotato: getSelectedQuestionCouchPotato,
-  questionNumberCouchPotato: getSelectedQuestionNumberCouchPotato
+  questionCouchPotato2: getSelectedQuestionCouchPotato2,
+  questionNumberCouchPotato2: getSelectedQuestionNumberCouchPotato2
 });
 const Wrapper = styled.section`
   .media {
