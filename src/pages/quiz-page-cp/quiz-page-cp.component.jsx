@@ -71,17 +71,12 @@ class QuizPageCP extends Component {
     //12.30 to 12.50
     //9.15 to 9.30 pm
     const date=new Date();
-    // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 27, 21, 15, 0, 0);
-    // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 27, 21, 45, 0, 0);
-    // console.log("next date is",nextDate.toLocaleString())
-
     console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 27, 15, 0, 0, 0);
+    const prevDate=new Date(2021, 5, 27, 21, 15, 0, 0);
     console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 27, 20, 20, 0, 0);
+    const nextDate=new Date(2021, 5, 27, 21, 45, 0, 0);
     console.log("next date is",nextDate.toLocaleString())
+
 
 
     
