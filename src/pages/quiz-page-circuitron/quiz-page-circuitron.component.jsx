@@ -59,19 +59,19 @@ class QuizPageCircuitRon extends Component {
     console.log("state before setting mounted to true", this.state);
 
     const date=new Date();
-    //1.30 -2.00
-    console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 25, 13, 30, 0, 0);
-    console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 25, 14,10, 0, 0);
-    console.log("next date is",nextDate.toLocaleString())
-    // console.log("current compared to prev",prevDate<date,nextDate>date);
+    // //1.30 -2.00
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 25, 13, 30, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 25, 14,10, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
+    // // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    if(!(date>prevDate&&date<nextDate))
-    {
-      this.props.history.push("/")
-    }
-    else{
+    // if(!(date>prevDate&&date<nextDate))
+    // {
+    //   this.props.history.push("/")
+    // }
+    // else{
     if (this.props.questionsCircuitron.length === 0) {
       axios
         .post("https://mcq-platform-server.herokuapp.com/circuitron/fetchQuestions")
@@ -120,7 +120,7 @@ class QuizPageCircuitRon extends Component {
       console.log("here in if of will update");
       this.submit(this, this.props.questionsCircuitron);
     }
-  }
+  // }
   }
   componentWillUpdate() {
     if (this.props.fetchedTime <= 0) {

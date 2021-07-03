@@ -68,25 +68,25 @@ class QuizPageCP extends Component {
     window.addEventListener("popstate", function (event) {
       window.history.pushState(null, document.title, window.location.href);
     });
-    //12.30 to 12.50
-    //9.15 to 9.30 pm
-    const date=new Date();
-    console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 27, 21, 15, 0, 0);
-    console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 27, 21, 45, 0, 0);
-    console.log("next date is",nextDate.toLocaleString())
+    // //12.30 to 12.50
+    // //9.15 to 9.30 pm
+    // const date=new Date();
+    // console.log("current date is",date.toLocaleString());
+    // const prevDate=new Date(2021, 5, 27, 21, 15, 0, 0);
+    // console.log("prev date is",prevDate.toLocaleString())
+    // const nextDate=new Date(2021, 5, 27, 21, 45, 0, 0);
+    // console.log("next date is",nextDate.toLocaleString())
 
 
 
     
-    console.log("current compared to prev",prevDate<date,nextDate>date);
+    // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    if(!(date>prevDate&&date<nextDate))
-    {
-      this.props.history.push("/")
-    }
-    else{
+    // if(!(date>prevDate&&date<nextDate))
+    // {
+    //   this.props.history.push("/")
+    // }
+    // else{
     if (this.props.questionsCouchPotato2.length === 0) {
       axios
         .post("https://mcq-platform-server.herokuapp.com/couchPotato/fetchQuestions", {
@@ -136,7 +136,7 @@ class QuizPageCP extends Component {
       console.log("here in if of will update");
       this.submit(this, this.props.questionsCouchPotato2);
     }
-  }
+  // }
   }
 
   componentWillUpdate() {

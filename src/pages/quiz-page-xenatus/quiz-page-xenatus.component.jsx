@@ -75,28 +75,28 @@ class QuizPageXenatus extends Component {
     //   Location.reload(false)
 
     // }
-    // 22.30-23.05
-    const date=new Date();
-    console.log("current date is",date.toLocaleString());
-    const prevDate=new Date(2021, 5, 26, 22, 30, 0, 0);
-    console.log("prev date is",prevDate.toLocaleString())
-    const nextDate=new Date(2021, 5, 26, 23, 42, 0, 0);
-    console.log("next date is",nextDate.toLocaleString())
-    console.log("current compared to prev",prevDate<date,nextDate>date);
-
+    // // 22.30-23.05
     // const date=new Date();
     // console.log("current date is",date.toLocaleString());
-    // const prevDate=new Date(2021, 5, 26, 19, 30, 0, 0);
+    // const prevDate=new Date(2021, 5, 26, 22, 30, 0, 0);
     // console.log("prev date is",prevDate.toLocaleString())
-    // const nextDate=new Date(2021, 5, 26, 20, 55, 0, 0);
+    // const nextDate=new Date(2021, 5, 26, 23, 42, 0, 0);
     // console.log("next date is",nextDate.toLocaleString())
     // console.log("current compared to prev",prevDate<date,nextDate>date);
 
+    // // const date=new Date();
+    // // console.log("current date is",date.toLocaleString());
+    // // const prevDate=new Date(2021, 5, 26, 19, 30, 0, 0);
+    // // console.log("prev date is",prevDate.toLocaleString())
+    // // const nextDate=new Date(2021, 5, 26, 20, 55, 0, 0);
+    // // console.log("next date is",nextDate.toLocaleString())
+    // // console.log("current compared to prev",prevDate<date,nextDate>date);
 
-    if(!(date>prevDate&&date<nextDate))
-    {
-      this.props.history.push("/")
-    }else{
+
+    // if(!(date>prevDate&&date<nextDate))
+    // {
+    //   this.props.history.push("/")
+    // }else{
     if (this.props.questionsXenatus2.length === 0) {
       axios
         .post("https://mcq-platform-server.herokuapp.com/xenatus/fetchQuestions")
@@ -145,7 +145,7 @@ class QuizPageXenatus extends Component {
       console.log("here in if of will update");
       this.submit(this, this.props.questionsXenatus2);
     }
-  }
+  // }
   }
 
   componentWillUpdate() {
