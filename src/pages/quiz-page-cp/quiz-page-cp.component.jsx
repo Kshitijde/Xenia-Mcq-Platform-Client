@@ -89,7 +89,7 @@ class QuizPageCP extends Component {
     else{
     if (this.props.questionsCouchPotato2.length === 0) {
       axios
-        .post("https://api.xeniamcq.co.in/couchPotato/fetchQuestions", {
+        .post("https://mcq-platform-server.herokuapp.com/couchPotato/fetchQuestions", {
           selectedSeries: this.props.location.state.selectedSeries,
         })
         .then((res) => {
@@ -109,7 +109,7 @@ class QuizPageCP extends Component {
     }
     console.log(this.props);
     var link =
-      "https://api.xeniamcq.co.in/couchPotato/getTime/" +
+      "https://mcq-platform-server.herokuapp.com/couchPotato/getTime/" +
       this.props.match.params.authToken;
     console.log(link);
     axios
@@ -158,7 +158,7 @@ class QuizPageCP extends Component {
       txt = "You pressed OK!";
 
       var link =
-        "https://api.xeniamcq.co.in/couchPotato/saveResponse/" +
+        "https://mcq-platform-server.herokuapp.com/couchPotato/saveResponse/" +
         reference.props.match.params.authToken;
       axios
         .post(link, response)

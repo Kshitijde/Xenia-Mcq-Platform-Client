@@ -60,7 +60,7 @@ class QuizPage extends Component {
     // }
     if (this.props.questions.length === 0) {
       axios
-        .post("https://api.xeniamcq.co.in/c2c/fetchQuestions")
+        .post("https://mcq-platform-server.herokuapp.com/c2c/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -78,7 +78,7 @@ class QuizPage extends Component {
     }
     console.log(this.props);
     var link =
-      "https://api.xeniamcq.co.in/c2c/getTime/" +
+      "https://mcq-platform-server.herokuapp.com/c2c/getTime/" +
       this.props.match.params.authToken;
     console.log(link);
     axios
@@ -119,7 +119,7 @@ class QuizPage extends Component {
     console.log("submit clicked");
     console.log("body while sending is", response);
     var link =
-      "https://api.xeniamcq.co.in/c2c/saveResponse/" +
+      "https://mcq-platform-server.herokuapp.com/c2c/saveResponse/" +
       reference.props.match.params.authToken;
     axios
       .post(link, response)

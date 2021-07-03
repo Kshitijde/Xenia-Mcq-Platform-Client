@@ -74,7 +74,7 @@ class QuizPageCircuitRon extends Component {
     else{
     if (this.props.questionsCircuitron.length === 0) {
       axios
-        .post("https://api.xeniamcq.co.in/circuitron/fetchQuestions")
+        .post("https://mcq-platform-server.herokuapp.com/circuitron/fetchQuestions")
         .then((res) => {
           console.log(res);
           // this.setState(res.data);
@@ -92,7 +92,7 @@ class QuizPageCircuitRon extends Component {
     }
     console.log(this.props);
     var link =
-      "https://api.xeniamcq.co.in/circuitron/getTime/" +
+      "https://mcq-platform-server.herokuapp.com/circuitron/getTime/" +
       this.props.match.params.authToken;
     console.log(link);
     axios
@@ -141,7 +141,7 @@ class QuizPageCircuitRon extends Component {
       txt = "You pressed OK!";
 
       var link =
-        "https://api.xeniamcq.co.in/circuitron/saveResponse/" +
+        "https://mcq-platform-server.herokuapp.com/circuitron/saveResponse/" +
         reference.props.match.params.authToken;
       axios
         .post(link, response)
